@@ -273,6 +273,11 @@
       innerInput.setAttribute('aria-valuemin', this.min);
       innerInput.setAttribute('aria-valuenow', this.currentValue);
       innerInput.setAttribute('aria-disabled', this.inputNumberDisabled);
+
+      if ( this.precision === undefined){
+        innerInput.setAttribute('pattern','[0-9]*');
+        innerInput.setAttribute('inputmode','numeric');
+      }
     },
     updated() {
       if (!this.$refs || !this.$refs.input) return;
